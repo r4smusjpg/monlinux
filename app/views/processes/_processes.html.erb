@@ -1,0 +1,14 @@
+<% processes.each do |k, v| %>
+  <li>
+    <%= render 'process', process: k %>
+    <ul>
+      <% v.each do |p| %>
+        <% if p.is_a?(Hash) %>
+          <%= render 'processes', processes: p %>
+        <% else %>
+          <li><%= render 'process', process: p %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </li>
+<% end %>
