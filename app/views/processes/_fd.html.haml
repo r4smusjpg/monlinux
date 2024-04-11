@@ -1,0 +1,10 @@
+%ul
+  - fd.each do |k, v|
+    %li
+      #{k} ->
+      - if v =~ /\//
+        = link_to v, "/files/#{URI.encode_uri_component(v.gsub('.', '*'))}"
+      - else
+        = v
+
+

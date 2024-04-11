@@ -1,0 +1,8 @@
+%h2 Process' data
+%ul
+  - @data.each do |l|
+    %li= l
+
+%h2 Process' file descriptors
+= render 'fd', fd: @fd
+

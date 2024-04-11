@@ -1,0 +1,9 @@
+- processes.each do |k, v|
+  %li
+    = render 'process', process: k
+    %ul.tree
+      - v.each do |p|
+        - if p.is_a?(Hash)
+          = render 'processes', processes: p
+        - else
+          %li= render 'process', process: p
