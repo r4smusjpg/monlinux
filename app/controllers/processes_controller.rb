@@ -6,6 +6,8 @@ class ProcessesController < ApplicationController
   def show
     pid = params[:pid]
 
-    @data = %x{ cat /proc/#{pid}/status }.split("\n")
+    service = ::Processes::DataService.call(pid)
+    @data = service.data
+    @fd = service.fd
   end
 end
