@@ -1,2 +1,5 @@
-= link_to process.name, "/processes/#{process.pid}"
-(pid: #{process.pid}, user: #{process.username})
+- if process.pid != 0
+  = link_to process.name, "/processes/#{process.pid}"
+  (pid: #{process.pid}, user: #{process.username})
+- else
+  = link_to 'linux-core', '/linux_core_data'
