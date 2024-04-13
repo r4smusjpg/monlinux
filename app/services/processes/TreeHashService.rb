@@ -5,7 +5,7 @@ module Processes
     ROOT = ::ProcessStruct.new(pid: 0, ppid: 0, uid: 0, name: 'linux-core')
 
     def self.call
-      self.new.tree
+      new.tree
     end
 
     attr_reader :tree

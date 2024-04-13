@@ -1,7 +1,7 @@
 module Processes
   class DataService
     def self.call(pid)
-      self.new(pid)
+      new(pid)
     end
 
     attr_reader :data, :fd
