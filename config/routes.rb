@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/processes', to: 'processes#index'
   get '/processes/:pid', to: 'processes#show'
 
+  # linux_core
+  get '/linux_core_data', to: 'linux_core#show'
+
   # files
   get '/files/:path', to: 'files#show', constraint: { path: /.*/ }
 end
