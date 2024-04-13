@@ -1,0 +1,18 @@
+%table
+  %thead
+    %tr
+      %th Module
+      %th Size
+      %th Instances
+      %th Used by
+  %tbody
+    - @loaded_modules.each do |m|
+      - row = m.split(' ')
+      %tr
+        %td= row[0]
+        %td= row[1]
+        %td= row[2]
+        %td
+          - row[3]&.split(',')&.each do |l|
+            = l
+            %br
