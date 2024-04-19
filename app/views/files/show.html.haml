@@ -1,5 +1,45 @@
 %h2 File stat
 
 %ul
-  - @data.each do |l|
-    %li= l
+  %li
+    ID of device containing file:
+    = @stat_buf.st_dev
+    (devices numbers list:
+    %a{href: "https://www.kernel.org/doc/Documentation/admin-guide/devices.txt"} devices.txt
+    )
+  %li
+    Inode number:
+    = @stat_buf.st_ino
+  %li
+    File type and mode:
+    = @stat_buf.st_mode
+  %li
+    Number of hard links:
+    = @stat_buf.st_nlink
+  %li
+    User ID of owner:
+    = @stat_buf.st_uid
+  %li
+    Group ID of owner:
+    = @stat_buf.st_gid
+  %li
+    Device ID (if special file):
+    = @stat_buf.st_rdev
+  %li
+    Total size in bytes
+    = @stat_buf.st_size
+  %li
+    Block size for filesystem I/O:
+    = @stat_buf.st_blksize
+  %li
+    Number of 512 B blocks allocated:
+    = @stat_buf.st_blocks
+  %li
+    Time of last access:
+    = @stat_buf.st_atime
+  %li
+    Time of last modification:
+    = @stat_buf.st_mtime
+  %li
+    Time of last status change:
+    = @stat_buf.st_ctime
