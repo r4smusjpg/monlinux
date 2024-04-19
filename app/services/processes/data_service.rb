@@ -21,11 +21,11 @@ module Processes
     end
 
     def get_fd
-      %x{ echo 123 | sudo -S ls -l /proc/#{@pid}/fd }.split("\n")
-                                                     .drop(1)
-                                                     .map { _1.split('->') }
-                                                     .map { [_1[0].split(' ').last, _1[1].strip] }
-                                                     .to_h
+      %x{ echo 123 | ls -l /proc/#{@pid}/fd }.split("\n")
+                                             .drop(1)
+                                             .map { _1.split('->') }
+                                             .map { [_1[0].split(' ').last, _1[1].strip] }
+                                             .to_h
     end
   end
 end

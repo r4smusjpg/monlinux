@@ -18,6 +18,7 @@ module Files
     end
 
     def self.call(path, fields = nil)
+      %x{ ruby ./stat_service.rb }
       new(path, fields).build_stat
     end
 
@@ -183,7 +184,7 @@ module Files
           char res[30];
 
           blkcnt_t blocks = statbuf.st_blocks;
-          sprintf(res, "%lu;", blocks);
+          sprintf(res, "%lu", blocks);
 
           return res;
         }
