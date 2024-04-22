@@ -16,7 +16,7 @@ module Memory
         [
           %x{ inxi -m }.split("\n")
                        .drop(1),
-          %x{ free }.split("\n")
+          %x{ free -m }.split("\n")
         ]
       end
     end
