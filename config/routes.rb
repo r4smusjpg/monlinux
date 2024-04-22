@@ -17,4 +17,7 @@ Rails.application.routes.draw do
 
   # files
   get '/files/:path', to: 'files#show', constraint: { path: /.*/ }
+
+  # cpu
+  get '/cpu_data', to: 'cpu#show'
 end
