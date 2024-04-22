@@ -24,5 +24,9 @@ Rails.application.routes.draw do
 
   # devices
   get '/devices_data/:type', to: 'devices#show',
-                             constaint: { type: /pci|usb/ }
+                             constraints: { type: /pci|usb/ }
+
+  # memory
+  get '/memory_data/:type', to: 'memory#show',
+                      constaints: { type: /disk|ram/ }
 end
