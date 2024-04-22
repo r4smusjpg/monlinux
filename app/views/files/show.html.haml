@@ -5,7 +5,7 @@
     ID of device containing file:
     #{@stat_buf.dev_major},#{@stat_buf.dev_minor}
     (devices numbers list:
-    %a{href: "https://www.kernel.org/doc/Documentation/admin-guide/devices.txt"} devices.txt
+    = link_to 'devices.txt', '/devices.txt'
     )
   %li
     Inode number:
