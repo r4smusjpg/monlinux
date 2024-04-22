@@ -15,7 +15,6 @@ module Processes
       @fd = get_fd
     end
 
-
     def get_data
       %x{ cat /proc/#{@pid}/status }.split("\n")
     end

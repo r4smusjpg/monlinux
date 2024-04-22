@@ -16,8 +16,13 @@ Rails.application.routes.draw do
   get '/linux_core_data', to: 'linux_core#show'
 
   # files
-  get '/files/:path', to: 'files#show', constraint: { path: /.*/ }
+  get '/files/:path', to: 'files#show',
+                      constraint: { path: /.*/ }
 
   # cpu
   get '/cpu_data', to: 'cpu#show'
+
+  # devices
+  get '/devices_data/:type', to: 'devices#show',
+                             constaint: { type: /pci|usb/ }
 end
