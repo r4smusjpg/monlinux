@@ -1,10 +1,10 @@
 module Cpu
   class DataService
     def self.call
-      new.parse_lscpu
+      new.get_data
     end
 
-    def parse_lscpu
+    def get_data
       %x{ lscpu }.split("\n")
     end
   end

@@ -4,7 +4,7 @@ module Processes
       new(pid)
     end
 
-    attr_reader :data, :fd
+    attr_reader :data, :fd, :memory_map
 
     private
 
@@ -13,6 +13,7 @@ module Processes
 
       @data = get_data
       @fd = get_fd
+      @memory_map = get_memory_map
     end
 
     def get_data
@@ -25,6 +26,11 @@ module Processes
                                              .map { _1.split('->') }
                                              .map { [_1[0].split(' ').last, _1[1].strip] }
                                              .to_h
+    end
+
+    def get_memory_map
+      %x{ pmap #{@pid} }.split("\n")
+                        .drop(1)
     end
   end
 end
