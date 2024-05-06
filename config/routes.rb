@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get '/files/:path', to: 'files#show',
                       constraint: { path: /.*/ }
 
+  # inodes
+  get '/inodes/:inode', to: 'inodes#show'
+
   # cpu
   get '/cpu_data', to: 'cpu#show'
 

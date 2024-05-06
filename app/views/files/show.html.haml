@@ -9,7 +9,7 @@
     )
   %li
     Inode number:
-    = @stat_buf.ino
+    = link_to @stat_buf.ino, "/inodes/#{@stat_buf.ino}"
   %li
     File type:
     = @stat_buf.ftype
