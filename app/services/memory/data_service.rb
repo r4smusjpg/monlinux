@@ -6,7 +6,7 @@ module Memory
 
     def get_data(type)
       case type
-      when 'disk'
+      when 'storage'
         [
           %x{ inxi -d }.split("\n")
                        .drop(1),

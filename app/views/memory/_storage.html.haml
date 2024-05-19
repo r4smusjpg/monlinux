@@ -1,0 +1,13 @@
+%ul
+  - data[0].each do |l|
+    %li= l
+  %h3 Memory usage
+  %table
+    %thead
+      - data[1].split("\n")[0].split(' ')[0..-2].each do |col|
+        %th= col
+    %tbody
+      - data[1].split("\n").drop(1).each do |row|
+        %tr
+          - row.split(/\s+/).each do |i|
+            %td= i

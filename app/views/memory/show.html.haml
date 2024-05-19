@@ -2,36 +2,6 @@
 
 - case @type
 - when 'ram'
-  %ul
-    - @data[0].each do |l|
-      %li= l
-    %h3 Memory usage
-    %table
-      %thead
-        %tr
-          %th
-          - @data[1][0].split(' ').each do |col|
-            %th= col
-      %tbody
-        %tr
-          %td Mem
-          - @data[1][1].split(/\s+/).drop(1).each do |row|
-            %td= row + " MB"
-        %tr
-          %td Swap
-          - @data[1][2].split(/\s+/).drop(1).each do |row|
-            %td= row + " MB"
-- when 'disk'
-  %ul
-    - @data[0].each do |l|
-      %li= l
-    %h3 Memory usage
-    %table
-      %thead
-        - @data[1].split("\n")[0].split(' ')[0..-2].each do |col|
-          %th= col
-      %tbody
-        - @data[1].split("\n").drop(1).each do |row|
-          %tr
-            - row.split(/\s+/).each do |i|
-              %td= i
+  = render 'ram', data: @data
+- when 'storage'
+  = render 'storage', data: @data
