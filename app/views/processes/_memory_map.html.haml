@@ -1,3 +1,9 @@
 %ul
   - @memory_map.each do |l|
-    %li= l
+    - if l =~ /so/
+      %li
+        - splitted_l = l.split(' ')
+        = splitted_l[0..-2].join(' ')
+        = link_to splitted_l[-1], "/files/#{URI.encode_uri_component(l.split(' ')[-1].gsub('.', '*'))}?shared_lib=true"
+    - else
+      %li= l

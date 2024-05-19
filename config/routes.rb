@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   get '/linux_core_data', to: 'linux_core#show'
 
   # files
-  get '/files/:path', to: 'files#show',
-                      constraint: { path: /.*/ }
+  get '/files/:path', to: 'files#show'
 
   # inodes
   get '/inodes/:inode', to: 'inodes#show'
