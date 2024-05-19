@@ -5,8 +5,9 @@ module Inodes
     end
 
     def get_data(inode)
-      %x{ echo "stat <#{inode}>" | debugfs /dev/nvme1n1p2 }.split("\n")
-                                                           .reject { _1 =~ /debugfs/}
+      mount_name = %x{ df }.split("\n")[4].split(' ')[0]
+      %x{ echo "stat <#{inode}>" | debugfs #{mount_name} }.split("\n")
+                                                          .reject { _1 =~ /debugfs/}
     end
   end
 end

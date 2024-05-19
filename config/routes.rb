@@ -31,5 +31,5 @@ Rails.application.routes.draw do
 
   # memory
   get '/memory_data/:type', to: 'memory#show',
-                      constaints: { type: /disk|ram/ }
+                            constaints: { type: /storage|ram/ }
 end
