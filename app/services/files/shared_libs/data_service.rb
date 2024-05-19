@@ -23,10 +23,14 @@ module Files
         shared_lib_path = %x{ strings /etc/ld.so.cache | grep #{@shared_lib} }.split("\n")
                                                                               .first
         if shared_lib_path.blank?
-          %x{ find / -name #{@shared_lib} }.split("\n").first
-        else
-          shared_lib_path
+          shared_lib_path = %x{ find /usr -name #{@shared_lib} }.split("\n").first
+
+          if shared_lib_path.blank?
+            shared_lib_path = %x{ find / -name #{@shared_lib} }.split("\n").first
+          end
         end
+
+        shared_lib_path
       end
     end
   end
