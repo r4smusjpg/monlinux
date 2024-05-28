@@ -1,4 +1,4 @@
-- if @shared_lib
-  = render 'shared_lib', stat_buf: @stat_buf
+- unless @type.blank?
+  = render "#{@type}", stat_buf: @stat_buf
 - else
   = render 'file', stat_buf: @stat_buf

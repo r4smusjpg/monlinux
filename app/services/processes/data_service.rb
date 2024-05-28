@@ -4,7 +4,7 @@ module Processes
       new(pid)
     end
 
-    attr_reader :data, :fd, :memory_map
+    attr_reader :data, :fd, :memory_map, :executable_file
 
     private
 
@@ -12,12 +12,17 @@ module Processes
       @pid = pid
 
       @data = get_data
+      @executable_file = get_executable_file
       @fd = get_fd
       @memory_map = get_memory_map
     end
 
     def get_data
       %x{ cat /proc/#{@pid}/status }.split("\n")
+    end
+
+    def get_executable_file
+      %x{ ls -l /proc/#{@pid} | grep exe }.split('->').last.strip
     end
 
     def get_fd

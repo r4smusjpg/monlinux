@@ -1,0 +1,14 @@
+- if ldd_tree.is_a?(Array)
+  %ul.tree
+    - ldd_tree.each do |i|
+      - if i.is_a?(String)
+        %li= i
+      - elsif i.is_a?(Hash)
+        = render 'ldd_tree', ldd_tree: i
+- elsif ldd_tree.is_a?(Hash)
+  - ldd_tree.each do |k, v|
+    %li
+      = k
+      = render 'ldd_tree', ldd_tree: v
+
+
