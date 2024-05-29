@@ -1,5 +1,8 @@
 %h2 Inode data
 
-%ul
-  - @data.each do |l|
-    %li= l
+- unless @data.blank?
+  %ul
+    - @data.each do |l|
+      %li= l
+- else
+  Not a File

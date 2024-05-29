@@ -5,10 +5,10 @@ module Inodes
     end
 
     def get_data(inode, device_numbers)
-      mount_name = %x{ lsblk | grep #{device_numbers}}.split(' ')[0]
-                                                      .slice(/\w+/)
+      mount_name = %x{ lsblk | grep #{device_numbers}}&.split(' ')[0]
+                                                      &.slice(/\w+/)
       %x{ echo "stat <#{inode}>" | debugfs /dev/#{mount_name} }.split("\n")
-                                                          .reject { _1 =~ /debugfs/}
+                                                               .reject { _1 =~ /debugfs/}
     end
   end
 end
