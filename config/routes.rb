@@ -31,4 +31,7 @@ Rails.application.routes.draw do
   # memory
   get '/memory_data/:type', to: 'memory#show',
                             constaints: { type: /storage|ram/ }
+
+  # mounts
+  get '/mounts', to: 'mounts#index'
 end
