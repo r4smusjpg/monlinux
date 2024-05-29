@@ -1,7 +1,8 @@
 %h2 Inode data
 - unless @data.blank?
   %ul
-    Device: #{@device_name}
+    Mount:
+    = link_to "#{@mount_name}", '/mounts'
     - @data.each do |l|
       %li= l
 - else

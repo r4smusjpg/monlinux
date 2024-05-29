@@ -1,5 +1,8 @@
 class MountsController < ApplicationController
   def index
-    @data = ::Mounts::DataService.call
+    service = ::Mounts::DataService.call
+
+    @all = service.all
+    @block = service.block
   end
 end

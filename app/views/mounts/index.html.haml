@@ -1,5 +1,10 @@
-%h2 Mounted Filesystems
-
+%h2 Filesystems from block devices
 %ul
-  - @data.each do |l|
+  - @block.each do |l|
     %li= l
+
+%h2 All Mounted Filesystems
+%ul
+  - @all.each do |l|
+    %li= l
+
