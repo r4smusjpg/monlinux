@@ -1,7 +1,7 @@
 %h2 Inode data
-
 - unless @data.blank?
   %ul
+    Device: #{@device_name}
     - @data.each do |l|
       %li= l
 - else
