@@ -4,7 +4,10 @@
     %li= l
 %p
   Executable File:
-  = link_to @executable_file, "/files/#{URI.encode_uri_component(@executable_file.gsub('.', '*'))}?type=process_exe"
+  - unless @executable_file.include?('root')
+    = link_to @executable_file, "/files/#{URI.encode_uri_component(@executable_file.gsub('.', '*'))}?type=process_exe"
+  - else
+    Kernel process
 
 %h2 Process' file descriptors
 = render 'fd', fd: @fd
