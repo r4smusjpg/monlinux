@@ -34,4 +34,7 @@ Rails.application.routes.draw do
 
   # mounts
   get '/mounts', to: 'mounts#index'
+
+  # network
+  get '/network', to: 'network#show'
 end
