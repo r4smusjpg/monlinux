@@ -9,6 +9,10 @@
   - else
     Kernel process
 
+%p
+  Process Network Connections:
+  = link_to 'Go', "/processes/#{@pid}/sockets"
+
 %h2 Process' file descriptors
 = render 'fd', fd: @fd
 

@@ -1,0 +1,13 @@
+%h2 Sockets of a process with pid = #{@pid}
+
+%table
+  %thead
+    %tr
+      - @data[0].each do |h|
+        %th= h
+  %tbody
+    - @data.drop(1).each do |l|
+      %tr
+        - l.each do |i|
+          %td= i
+

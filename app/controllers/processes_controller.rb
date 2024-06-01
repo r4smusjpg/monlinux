@@ -4,9 +4,9 @@ class ProcessesController < ApplicationController
   end
 
   def show
-    pid = params[:pid]
+    @pid = params[:pid]
 
-    service = ::Processes::DataService.call(pid)
+    service = ::Processes::DataService.call(@pid)
     @data = service.data
     @executable_file = service.executable_file
     @fd = service.fd
