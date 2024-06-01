@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/processes', to: 'processes#index'
   get '/processes/:pid', to: 'processes#show'
 
+  # process sockets
+  get '/processes/:pid/sockets', to: 'sockets#index'
+
   # linux_core
   get '/linux_core_data', to: 'linux_core#show'
 
