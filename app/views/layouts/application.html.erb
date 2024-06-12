@@ -8,10 +8,15 @@
 
     <%= stylesheet_link_tag "application" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="stylesheet" href="/terminal/node_modules/@xterm/xterm/css/xterm.css" />
+    <script src="/terminal/node_modules/@xterm/xterm/lib/xterm.js"></script>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
+    <div id="terminal"></div>
     <%= yield %>
   </body>
+  <script src="/terminal/frontend.js"></script>
 </html>
