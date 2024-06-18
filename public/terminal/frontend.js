@@ -1,5 +1,5 @@
 
-const socket = new WebSocket("ws://localhost:6060");
+const socket = new WebSocket("http://localhost:6060");
 socket.onmessage = (event) => {
     term.write(event.data);
 
